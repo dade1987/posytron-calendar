@@ -29,7 +29,7 @@ class ShiftController extends Controller
     // Elenco turni inviati almeno 10 giorni prima
     public function shiftsNotice()
     {
-        $shifts = Shift::where('start_time', '>=', now()->addDays(10))->get();
+        $shifts = Shift::whereRaw('DATEDIFF(start_time, created_at) >= 10')->get();
         return view('shifts.notice', compact('shifts'));
     }
 

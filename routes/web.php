@@ -21,9 +21,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/shifts', [ShiftController::class, 'index'])->name('shifts.index');
     Route::get('/shifts/{shift}/edit', [ShiftController::class, 'edit'])->name('shifts.edit');
-    Route::get('/shifts/utente/{userId}', [ShiftController::class, 'userShifts'])->name('shifts.user');
+    Route::get('/shifts/user/{userId}', [ShiftController::class, 'userShifts'])->name('shifts.user');
     Route::get('/shifts/notice', [ShiftController::class, 'shiftsNotice'])->name('shifts.notice');
-    
+
     Route::post('/shifts', [ShiftController::class, 'store'])->name('shifts.store');
     Route::put('/shifts/{shift}', [ShiftController::class, 'update'])->name('shifts.update');
     Route::delete('/shifts/{shift}', [ShiftController::class, 'destroy'])->name('shifts.destroy');
